@@ -74,10 +74,10 @@ public class PersonDBLayer {
 	
 	public List<Person> getPersons () throws Exception {
 		List<Person> listOfPersons = new ArrayList<Person>();
-	    	Class.forName("org.sqlite.JDBC");
 
 		Connection connection = null;
 		try {
+			Class.forName("org.sqlite.JDBC");
 	         	connection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\snasiadk\\eclipse-workspace\\DBProject\\bin\\persons.db");
 
 	         	Statement statement = connection.createStatement();
