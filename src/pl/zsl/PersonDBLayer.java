@@ -14,23 +14,23 @@ public class PersonDBLayer {
 		Connection connection = null;
 		try {
 			Class.forName("org.sqlite.JDBC");
-	        connection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\snasiadk\\eclipse-workspace\\DBProject\\bin\\persons.db");
+	        	connection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\snasiadk\\eclipse-workspace\\DBProject\\bin\\persons.db");
 
-	        Statement statement = connection.createStatement();
-	        statement.setQueryTimeout(30); 
+	        	Statement statement = connection.createStatement();
+	        	statement.setQueryTimeout(30); 
 
-	        statement.executeUpdate("INSERT INTO Person values('"+prsn.getName()+"')");
+	        	statement.executeUpdate("INSERT INTO Person values('"+prsn.getName()+"')");
 	        
 		}
-	    catch(SQLException e){
-	    	 System.err.println(e.getMessage());
-	    	 throw e;
-	    }
+	    	catch(SQLException e){
+	    	 	System.err.println(e.getMessage());
+	    	 	throw e;
+	    	}
 		catch (ClassNotFoundException e) {
 			System.err.println(e.getMessage()); 
 			throw e;
 		}
-	    finally {         
+	    	finally {         
 			try {
 				if(connection != null)
 					connection.close();
@@ -45,23 +45,23 @@ public class PersonDBLayer {
 		Connection connection = null;
 		try {
 			Class.forName("org.sqlite.JDBC");
-	        connection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\snasiadk\\eclipse-workspace\\DBProject\\bin\\persons.db");
+	        	connection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\snasiadk\\eclipse-workspace\\DBProject\\bin\\persons.db");
 
-	        Statement statement = connection.createStatement();
-	        statement.setQueryTimeout(30); 
+	        	Statement statement = connection.createStatement();
+	        	statement.setQueryTimeout(30); 
 
-	        statement.executeUpdate("DELETE FROM Person WHERE name='"+ prsn.getName() + "'");
+	        	statement.executeUpdate("DELETE FROM Person WHERE name='"+ prsn.getName() + "'");
 	        
 		}
-	    catch(SQLException e){
-	    	 System.err.println(e.getMessage());
-	    	 throw e;
-	    }
+	    	catch(SQLException e){
+	    	 	System.err.println(e.getMessage());
+	    	 	throw e;
+	    	}
 		catch (ClassNotFoundException e) {
 			System.err.println(e.getMessage()); 
 			throw e;
 		}
-	    finally {         
+	    	finally {         
 			try {
 				if(connection != null)
 					connection.close();
@@ -74,26 +74,26 @@ public class PersonDBLayer {
 	
 	public List<Person> getPersons () throws Exception {
 		List<Person> listOfPersons = new ArrayList<Person>();
-	    Class.forName("org.sqlite.JDBC");
+	    	Class.forName("org.sqlite.JDBC");
 
 		Connection connection = null;
 		try {
-	         connection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\snasiadk\\eclipse-workspace\\DBProject\\bin\\persons.db");
+	         	connection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\snasiadk\\eclipse-workspace\\DBProject\\bin\\persons.db");
 
-	         Statement statement = connection.createStatement();
-	         statement.setQueryTimeout(30); 
+	         	Statement statement = connection.createStatement();
+	         	statement.setQueryTimeout(30); 
 
-	         ResultSet resultSet = statement.executeQuery("SELECT name from Person");
-	         while(resultSet.next())
-	         {
-	        	 Person newPerson = new Person(resultSet.getString("name"));
-	        	 listOfPersons.add (newPerson);
-	         }
+	         	ResultSet resultSet = statement.executeQuery("SELECT name from Person");
+	         	while(resultSet.next())
+	         	{
+	        	 	Person newPerson = new Person(resultSet.getString("name"));
+	        	 	listOfPersons.add (newPerson);
+	         	}
 		}
-	    catch(SQLException e){
-	    	 System.err.println(e.getMessage()); 
-	    }       
-	    finally {         
+	    	catch(SQLException e){
+	    	 	System.err.println(e.getMessage()); 
+	    	}       
+	    	finally {         
 			try {
 				if(connection != null)
 					connection.close();
@@ -101,7 +101,7 @@ public class PersonDBLayer {
 			catch(SQLException e) {        
 				System.err.println(e); 
 			}
-	    }
+	    	}
 		
 		return listOfPersons;
 	}
