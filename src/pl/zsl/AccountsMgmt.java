@@ -11,50 +11,50 @@ public class AccountsMgmt {
 		Scanner scan = new Scanner (System.in);
 		Boolean cont = true;
 		do {
-			System.out.println("Podaj operacjê:");
+			System.out.println("Podaj operacjÄ™:");
 			System.out.println("[1]. Dodanie osoby");
-			System.out.println("[2]. Usuniêcie osoby");
-			System.out.println("[3]. Wyœwietlenie osób");
-			System.out.println("[4]. Koniec dzia³ania aplikacji");
+			System.out.println("[2]. UsuniÄ™cie osoby");
+			System.out.println("[3]. WyÅ›wietlenie osÃ³b");
+			System.out.println("[4]. Koniec dziaÅ‚ania aplikacji");
 			String operation = scan.nextLine();
 			if ("1".equals(operation)) {
-				System.out.println("Podaj nazwê");
+				System.out.println("Podaj nazwÄ™");
 				String name = scan.nextLine();
 				Person p1 = new Person();
 				p1.setName(name);
 				try {
 					oc.addPerson(p1);
 				} catch (Exception e) {
-					System.out.println("B³¹d w trakcie dodawania osoby: " + e);
+					System.out.println("BÅ‚Ä…d w trakcie dodawania osoby: " + e);
 					e.printStackTrace();
 				}
 			} else if ("2".equals(operation)) {
-				System.out.println("Podaj nazwê");
+				System.out.println("Podaj nazwÄ™");
 				String name = scan.nextLine();
 				try {
 					if (!oc.removePerson(name))
-						System.out.println("Osoby nie ma na liœcie");
+						System.out.println("Osoby nie ma na liÅ“cie");
 					else
-						System.out.println("Usuniêto osobê z listy");
+						System.out.println("UsuniÄ™to osobÃª z listy");
 				} catch (Exception e) {
-					System.out.println("B³¹d w trakcie usuwania osoby: " + e);
+					System.out.println("BÅ‚Ä…d w trakcie usuwania osoby: " + e);
 					e.printStackTrace();
 				}
 			} else if ("3".equals(operation)) {
-				System.out.println("Lista osób:");
+				System.out.println("Lista osÃ³b:");
 				try {
 					for (Person p : oc.getPersons()) {
 						System.out.println(p);
 					}
 				} catch (Exception e) {
-					System.out.println("B³¹d w trakcie wyœwietlanian listy osób: " + e);
+					System.out.println("BÅ‚Ä…d w trakcie wyÅ›wietlania listy osÃ³b: " + e);
 					e.printStackTrace();
 				}
 			} else if ("4".equals(operation)) {
 				System.out.println("Bye.");
 				cont = false;
 			} else {
-				System.out.println("Nieprawid³owa operacja");
+				System.out.println("NieprawidÅ‚owa operacja");
 			}
 		} while (cont);
 		scan.close();
